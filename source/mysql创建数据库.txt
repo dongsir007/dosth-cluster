@@ -1,0 +1,101 @@
+
+# 创建主库
+
+mysqld --defaults-file=D:\mysql-8.0.28-winx64\my-3316.ini --initialize-insecure --console
+
+mysqld install mysql-master --defaults-file=D:\mysql-8.0.28-winx64\my-3316.ini
+
+# mysql-master 服务启动
+net start mysql-master
+
+mysql --defaults-file=D:\mysql-8.0.28-winx64\my-3316.ini -u root -p
+
+# 修改加密规则
+
+ALTER USER 'root'@'localhost' IDENTIFIED BY '123' PASSWORD EXPIRE NEVER; 
+
+# 修改密码
+ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY '123';
+
+#刷新权限
+FLUSH PRIVILEGES;
+
+# 修改网络访问
+update mysql.user set host = '%' where user = 'root';
+
+show master status;
+
+change master to master_host='192.168.8.127',master_port=3326,master_user='root',master_password='123',master_log_file='slave-bin.000001',master_log_pos=154;
+
+
+# 创建从库
+
+mysqld --defaults-file=D:\mysql-8.0.28-winx64\my-3326.ini --initialize-insecure --console
+
+mysqld install mysql-slave --defaults-file=D:\mysql-8.0.28-winx64\my-3326.ini
+
+# mysql-slave 服务启动
+net start mysql-slave
+
+mysql --defaults-file=D:\mysql-8.0.28-winx64\my-3326.ini -u root -p
+
+# 修改加密规则
+
+ALTER USER 'root'@'localhost' IDENTIFIED BY '123' PASSWORD EXPIRE NEVER; 
+
+# 修改密码
+ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY '123';
+
+#刷新权限
+FLUSH PRIVILEGES;
+
+# 修改网络访问
+update mysql.user set host = '%' where user = 'root';
+
+
+show master status;
+
+change master to master_host='192.168.8.127',master_port=3316,master_user='root',master_password='123',master_log_file='master-bin.000001',master_log_pos=154;
+
+
+# 
+reset master;
+
+stop slave;
+reset slave;
+start slave;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 

@@ -1,0 +1,26 @@
+from: dev-environment-5.0
+spring:
+  application:
+    name: config-client
+  cloud:
+    loadbalancer:
+      ribbon:
+        enabled: false
+    config:
+      uri: http://localhost:9001
+      fail-fast: true
+server:
+  port: 9002
+  
+eureka:
+  client:
+    registerWithEureka: false
+    fetchRegistry: false
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+      
+management:
+  endpoints:
+    web:
+      exposure:
+        include: refresh,health,info

@@ -1,0 +1,31 @@
+server:
+  port: 9001
+
+spring:
+  application:
+    name: config-server
+  profiles:
+    active: native
+  cloud:
+    config:
+      server:
+        native:
+          search-locations: file:///E:\spring-alibaba\szbsc-cabinet-b\szbsc-config-client\src\main\resources
+
+management:
+  endpoints:
+    enabled-by-default: true
+    web:
+      exposure:
+        include: shutdown, refresh
+  endpoint:
+    shutdown:
+      enabled: true
+
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+      

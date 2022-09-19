@@ -1,0 +1,21 @@
+server:
+  port: 8001
+
+spring:
+  redis:
+    password: 123
+    timeout: 15000ms
+    cluster:
+      nodes: 127.0.0.1:6379
+      max-redirects: 30
+    lettuce:
+      pool:
+        max-active: 30
+        max-wait: -1
+        max-idle: 3
+        min-idle: 1
+    database: 0
+  secondaryRedis:
+    password: 123
+    cluster:
+      nodes: 127.0.0.1:6380

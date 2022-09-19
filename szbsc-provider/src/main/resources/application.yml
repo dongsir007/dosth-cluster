@@ -1,0 +1,22 @@
+spring:
+  application:
+    name: provider-service
+  profiles: 
+    active: provider2-1
+    
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/,http://localhost:8762/eureka/,http://localhost:8763/eureka/
+  
+---
+server:
+  port: 2001
+spring:
+  profiles: provider2-1
+
+---
+server:
+  port: 2002
+spring:
+  profiles: provider2-2
