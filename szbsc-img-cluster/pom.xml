@@ -32,5 +32,10 @@
 			<artifactId>spring-boot-configuration-processor</artifactId>
 			<optional>true</optional>
 		</dependency>
+		<dependency>
+		  <groupId>org.apache.sling</groupId>
+		  <artifactId>org.apache.sling.thumbnails</artifactId>
+		  <version>1.0.0</version>
+		</dependency>
 	</dependencies>
 </project>
