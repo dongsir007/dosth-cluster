@@ -6,18 +6,18 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.szbsc.dosth.entity.Account;
-import com.szbsc.dosth.repository.AccountRepository;
+import com.szbsc.dosth.entity.User;
+import com.szbsc.dosth.repository.UserRepository;
 
 @RestController
-@RequestMapping("/account")
-public class AccountController {
+@RequestMapping("/user")
+public class UserController {
 	
 	@Autowired
-	private AccountRepository accountRepository;
+	private UserRepository userRepository;
 	
 	@RequestMapping("/list")
-	public List<Account> list() {
-		return this.accountRepository.findAll();
+	public List<User> list() {
+		return this.userRepository.findAll();
 	}
 }
