@@ -65,5 +65,6 @@
 		<module>szbsc-redis-cluster</module>
 		<module>szbsc-jpa-mysql-cluster</module>
 		<module>szbsc-redis-multresource</module>
+		<module>szbsc-img-cluster</module>
 	</modules>
 </project>
