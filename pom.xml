@@ -19,8 +19,7 @@
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<project.reporting.outputEncoding>UTF-8
-		</project.reporting.outputEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<java.version>1.8</java.version>
 		<spring-cloud.version>Hoxton.M2</spring-cloud.version>
 	</properties>
@@ -47,16 +46,7 @@
 			</snapshots>
 		</repository>
 	</repositories>
-	
-	<build>
-		<plugins>
-			<plugin>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId>
-			</plugin>
-		</plugins>
-	</build>
-	
+
 	<modules>
 		<module>szbsc-eureka-server</module>
 		<module>szbsc-config-server</module>
@@ -66,5 +56,8 @@
 		<module>szbsc-jpa-mysql-cluster</module>
 		<module>szbsc-redis-multresource</module>
 		<module>szbsc-img-cluster</module>
+		<module>szbsc-client</module>
+		<module>szbsc-feign</module>
+		<module>szbsc-common</module>
 	</modules>
 </project>
