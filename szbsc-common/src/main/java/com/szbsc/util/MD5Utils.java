@@ -42,10 +42,10 @@ public class MD5Utils {
 		if (text == null || "".equals(text)) {
 			return null;
 		}
-		ByteArrayOutputStream out = new ByteArrayOutputStream();
+		ByteArrayOutputStream out = new ByteArrayOutputStream(1024);
 		GZIPOutputStream gzip = null;
 		try {
-			gzip = new GZIPOutputStream(out);
+			gzip = new GZIPOutputStream(out, 1024);
 			gzip.write(text.getBytes());
 		} catch (IOException e) {
 			e.printStackTrace();

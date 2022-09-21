@@ -1,0 +1,13 @@
+feign:
+  compression:
+    request:
+      enabled: true
+      mime-types:
+        - text/html,application/xml
+        - application/json
+      min-request-size: 2048
+    response:
+      enabled: true
+logging:
+  level:
+    com.szbsc: debug

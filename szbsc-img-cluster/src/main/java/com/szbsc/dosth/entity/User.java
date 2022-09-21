@@ -2,8 +2,10 @@ package com.szbsc.dosth.entity;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
+@Table(name = "users")
 public class User {
 	@Id
 	private String id;
