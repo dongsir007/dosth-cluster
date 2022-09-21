@@ -12,7 +12,7 @@ public class FeignUser implements Serializable {
 	private String avatar;
 
 	public String getUserId() {
-		return userId;
+		return this.userId;
 	}
 
 	public void setUserId(String userId) {
@@ -20,7 +20,7 @@ public class FeignUser implements Serializable {
 	}
 
 	public String getUserName() {
-		return userName;
+		return this.userName;
 	}
 
 	public void setUserName(String userName) {
@@ -28,7 +28,7 @@ public class FeignUser implements Serializable {
 	}
 
 	public String getAvatar() {
-		return avatar;
+		return this.avatar;
 	}
 
 	public void setAvatar(String avatar) {

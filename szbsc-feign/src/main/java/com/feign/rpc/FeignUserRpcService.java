@@ -12,7 +12,7 @@ public interface FeignUserRpcService {
 	 * 
 	 * @param feignUser
 	 */
-	@RequestMapping("/add")
+	@RequestMapping("/addUser")
 	public void addUser(@RequestBody FeignUser feignUser);
 
 	/**
