@@ -16,6 +16,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.StringUtils;
+import org.springframework.web.bind.annotation.RestController;
 
 import com.feign.dto.FeignUser;
 import com.feign.rpc.FeignUserRpcService;
@@ -26,7 +27,7 @@ import com.szbsc.util.IdGenerator;
 import com.szbsc.util.ImgUtil;
 
 @SuppressWarnings("serial")
-@Service
+@RestController
 public class FeignUserRpcServiceImpl implements FeignUserRpcService, UserService {
 
 	@Autowired
