@@ -1,0 +1,19 @@
+server:
+  port: 7001
+spring:
+  quartz:
+    scheduler-name: userSchedule
+    job-store-type: memory
+    auto-startup: true
+    startup-delay: 10s
+    wait-for-jobs-to-complete-on-shutdown: true
+    overwrite-existing-jobs: false
+    properties:
+      org:
+        quartz:
+          threadPool:
+            threadCount: 25
+            #threadPriorty: 5
+            class: org.quartz.simpl.SimpleThreadPool
+          
+  
