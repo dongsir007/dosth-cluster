@@ -1,0 +1,53 @@
+spring:
+  profiles:
+    active: peer2-1
+  datasource:
+    master:
+     jdbc-url: jdbc:mysql://192.168.8.127:3316/test?serverTimezone=GMT%2B8&autoReconnect=true&useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull    #创建的数据库
+     username: root
+     password: 123
+     driverClassName: com.mysql.cj.jdbc.Driver
+    slave:
+     jdbc-url: jdbc:mysql://192.168.8.127:3326/test?serverTimezone=GMT%2B8&autoReconnect=true&useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull    #创建的数据库
+     username: root
+     password: 123
+     driverClassName: com.mysql.cj.jdbc.Driver
+  quartz:
+    scheduler-name: userSchedule
+    job-store-type: jdbc
+    auto-startup: true
+    startup-delay: 1s
+    wait-for-jobs-to-complete-on-shutdown: true
+    overwrite-existing-jobs: false
+    jdbc:
+      initialize-schema: never
+    properties:
+      org:
+        quartz:
+          jobStore:
+            dataSource: quartzDataSource
+            class: org.quartz.impl.jdbcjobstore.JobStoreTX
+            driverDelegateClass: org.quartz.impl.jdbcjobstore.StdJDBCDelegate
+            tablePrefix: QRTZ_
+            isClustered: true
+            clusterCheckinInterval: 1000
+            useProperties: false
+          threadPool:
+            threadCount: 25
+            threadPriority: 5
+            class: org.quartz.simpl.SimpleThreadPool
+            
+---
+server:
+  port: 6001
+  
+spring:
+  profiles: peer2-1
+  
+     
+---
+server:
+  port: 6002
+  
+spring:
+  profiles: peer2-2
