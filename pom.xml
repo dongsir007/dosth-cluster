@@ -60,5 +60,6 @@
 		<module>szbsc-feign</module>
 		<module>szbsc-common</module>
 		<module>szbsc-quartz</module>
+		<module>szbsc-quartz-cluster</module>
 	</modules>
 </project>
