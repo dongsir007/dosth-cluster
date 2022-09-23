@@ -23,11 +23,11 @@ public class QuartzScheduleConfig {
 		/**
 		 * 工作负载名称
 		 */
-		private static final String JOB_NAME = "userJob";
+		private static final String JOB_NAME = "userJob1";
 		/**
 		 * 触发器名称
 		 */
-		private static final String TRIGGER_NAME = "userJobTrigger";
+		private static final String TRIGGER_NAME = "userJob1Trigger";
 		
 		@Bean
 		public JobDetail userJob() {
