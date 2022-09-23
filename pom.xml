@@ -61,5 +61,6 @@
 		<module>szbsc-common</module>
 		<module>szbsc-quartz</module>
 		<module>szbsc-quartz-cluster</module>
+		<module>szbsc-gateway</module>
 	</modules>
 </project>
