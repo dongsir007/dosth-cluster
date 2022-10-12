@@ -62,5 +62,6 @@
 		<module>szbsc-quartz</module>
 		<module>szbsc-quartz-cluster</module>
 		<module>szbsc-gateway</module>
+		<module>szbsc-shiro-jwt</module>
 	</modules>
 </project>
