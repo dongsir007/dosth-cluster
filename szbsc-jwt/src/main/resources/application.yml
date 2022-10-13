@@ -1,0 +1,13 @@
+spring:
+  profiles: jwt
+  
+passjava:
+  jwt:
+    enabled: true # 是否开启JWT登录认证
+    secret: passjava # JWT私钥,用于校验JWT令牌的合法性
+    expiration: 3600000 # 令牌的有效期, 默认一小时
+    header: Authorization # HTTP请求Header名称,该Header作为参数传递JWT令牌
+    userParamName: accountId # 用户登录认证用户参数名称
+    pwdParamName: password # 用户登录认证密码参数名称
+    useDefaultController: true # 是否使用默认的JwtAuthController
+    skipValidUrl: /auth/login,/renren-fast/captcha.jpg,/renren-fast/sys/login 
