@@ -64,5 +64,6 @@
 		<module>szbsc-gateway</module>
 		<module>szbsc-shiro-jwt</module>
 		<module>szbsc-jwt</module>
+		<module>szbsc-auth</module>
 	</modules>
 </project>

@@ -7,7 +7,7 @@ import lombok.Data;
 
 @Data
 @Component
-@ConfigurationProperties(prefix = "passjava.jwt")
+@ConfigurationProperties(prefix = "szbsc.jwt")
 public class JwtProperties {
 	private Boolean enabled; // : true # 是否开启JWT登录认证
     private String secret; // : passjava # JWT私钥,用于校验JWT令牌的合法性

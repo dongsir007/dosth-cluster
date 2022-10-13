@@ -92,7 +92,7 @@ public class JwtUtil {
 	private Map<String, Object> buildClaims(String accountId, String userName, Map<String, Object> payloads) {
 		int payloadSize = payloads == null ? 0 : payloads.size();
 		Map<String, Object> claims = new HashMap<>();
-		claims.put("sub", accountId);
+		claims.put(Claims.SUBJECT, accountId);
 		claims.put(USER_NAME, userName);
 		claims.put("created", new Date());
 		if (payloadSize > 0) {
@@ -131,6 +131,11 @@ public class JwtUtil {
 		return request.getHeader(ACCOUNT_ID);
 	}
 	
+	/**
+	 * 移除Token
+	 * @param accountId
+	 * @return true 成功 false 失败
+	 */
 	public boolean removeToken(String accountId) {
 		return Boolean.TRUE.equals(this.redisTemplate.delete(JWT_CACHE_KEY + accountId));
 	}
@@ -162,7 +167,7 @@ public class JwtUtil {
 	 * @param token
 	 * @return true 已过期 false 未过期
 	 */
-	private boolean isTokenExpired(String token) {
+	public boolean isTokenExpired(String token) {
 		try {
 			Claims claims = this.getClaimsFromToken(token);
 			Date expiration = claims.getExpiration();

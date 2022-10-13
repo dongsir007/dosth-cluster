@@ -2,6 +2,8 @@ package com.szbsc.common;
 
 import java.util.Objects;
 
+import lombok.Data;
+
 /**
  * 响应结果
  * 
@@ -9,6 +11,7 @@ import java.util.Objects;
  *
  * @param <T>
  */
+@Data
 public class ResponseResult<T> {
 	private int code = 0;
 	private String message;
@@ -26,7 +29,11 @@ public class ResponseResult<T> {
 	}
 
 	public static <T> ResponseResult<T> success() {
-		return new ResponseResult<>(ResponseCodeEnum.SUCCESS.getCode(), ResponseCodeEnum.SUCCESS.getMessage());
+		return buildResponseCodeEnum(ResponseCodeEnum.SUCCESS);
+	}
+
+	public static <T> ResponseResult<T> buildResponseCodeEnum(ResponseCodeEnum responseCode) {
+		return new ResponseResult<>(responseCode.getCode(), responseCode.getMessage());
 	}
 
 	public static <T> ResponseResult<T> success(T data) {
@@ -43,29 +50,5 @@ public class ResponseResult<T> {
 
 	public boolean isSuccess() {
 		return Objects.equals(code, ResponseCodeEnum.SUCCESS.getCode());
-	}
-
-	public int getCode() {
-		return this.code;
-	}
-
-	public void setCode(int code) {
-		this.code = code;
-	}
-
-	public String getMessage() {
-		return this.message;
-	}
-
-	public void setMessage(String message) {
-		this.message = message;
-	}
-
-	public T getData() {
-		return this.data;
-	}
-
-	public void setData(T data) {
-		this.data = data;
 	}
 }

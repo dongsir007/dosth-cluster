@@ -1,0 +1,8 @@
+spring:
+  profiles:
+    include: jwt
+  application:
+    name: auth-service
+
+server:
+  port: 10001

@@ -8,7 +8,7 @@ package com.szbsc.common;
 public enum ResponseCodeEnum {
 	SUCCESS(0, "成功"),
 	FAIL(-1, "失败"),
-	LOGION_ERROR(1000, "用户名或密码错误"),
+	LOGIN_ERROR(1000, "用户名或密码错误"),
 	LOGIN_EMPTY_ERROR(1001, "用户名或密码不能为空"),
 	
 	UNKNOWN_ERROR(2000, "未知错误"),
