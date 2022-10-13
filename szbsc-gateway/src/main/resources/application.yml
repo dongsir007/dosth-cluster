@@ -3,11 +3,28 @@ spring:
     name: gateway-server
   cloud:
     gateway:
+      discovery:
+        locator:
+          enabled: true
+          lower-case-service-id: true
       routes:
       - id: provider-server
         uri: lb://provider-service
         predicates:
           - Path=/provider/**
+        filters:
+          - StripPrefix=1
+          - name: RequestRateLimiter
+            args:
+              key-resolver: "#{@ipKeyResolver}"
+              redis-rate-limiter.replenishRate: 1
+              redus-rate-limiter.burstCapacity: 5
+      - id: jwt-service 
+        uri: lb://jwt-service
+        predicates:
+          - Path=/jwt/** 
+        filters:
+          - StripPrefix=1
     
 eureka:
   client:
