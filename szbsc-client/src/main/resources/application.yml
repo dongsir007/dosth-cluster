@@ -1,9 +1,6 @@
-server:
-  port: 9102
-
 spring:
   application:
-    name: consume-service
+    name: szbsc-consume
     
 eureka:
   client:
@@ -40,3 +37,29 @@ feign:
 logging:
   level:
     com.szbsc: debug
+    
+---
+server:
+  port: 3001
+spring:
+  profiles: peer2-1
+  
+eureka:
+  instance:
+    ip-address: 192.168.8.127
+    instance-id: 192.168.8.127:3001
+    prefer-ip-address: true
+    
+    
+---
+server:
+  port: 3002
+spring:
+  profiles: peer2-2
+  
+eureka:
+  instance:
+    ip-address: 192.168.8.127
+    instance-id: 192.168.8.127:3002
+    prefer-ip-address: true
+        

@@ -1,6 +1,6 @@
 spring:
   application:
-    name: provider-service
+    name: szbsc-provider
   profiles: 
     active: peer2-1
     

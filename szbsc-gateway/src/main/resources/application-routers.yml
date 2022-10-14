@@ -1,0 +1,17 @@
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: routh_auth
+          uri: lb://szbsc-auth
+          predicates:
+            - Path=/api/auth/**
+          filters:
+            - RewritePath=/api/(?<segment>.*),/$\{segment}
+        - id: szbsc-provider
+          uri: lb://szbsc-provider
+          predicates:
+            - Path=/provider/**
+          filters:
+            - StripPrefix=1
+          
