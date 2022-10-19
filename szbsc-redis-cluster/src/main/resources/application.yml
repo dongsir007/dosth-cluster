@@ -3,15 +3,13 @@ server:
   
 spring:
   redis:
-#    host: 127.0.0.1
-#    port: 6379
     password: # 123
-#    database: 0
     cluster:
       nodes: 127.0.0.1:6380,127.0.0.1:6381,127.0.0.1:6382,127.0.0.1:6383,127.0.0.1:6384,127.0.0.1:6385
       max-redirects: 3
-    jedis:
+    lettuce:
       pool:
         max-active: 32
         max-idle: 16
         min-idle: 8
+        max-wait: -1
